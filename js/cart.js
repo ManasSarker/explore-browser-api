@@ -11,5 +11,20 @@ const addProduct = () => {
   const product = getInputValueById("product-name-filed");
   const quantity = getInputValueById("product-quantity-field");
 
-  console.log(product);
+  //set to local storage in simple away
+
+  localStorage.setItem(product, quantity);
+  // console.log(product);
+
+  displayProducts(product, quantity);
+};
+
+const displayProducts = (product, quantity) => {
+  const productContainerId = document.getElementById("product-container");
+
+  const li = document.createElement("li");
+
+  li.innerHTML = `${product} : ${quantity}`;
+
+  productContainerId.appendChild(li);
 };
